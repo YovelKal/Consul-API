@@ -12,7 +12,7 @@
 ## API EndPoints:
 
 
-127.0.0.1:8000/v1/api/consulCluster/status
-127.0.0.1:8000/v1/api/consulCluster/summary
-127.0.0.1:8000/v1/api/consulCluster/members
-127.0.0.1:8000/v1/api/consulCluster/systemInfo
+1. 127.0.0.1:8000/v1/api/consulCluster/status
+2. 127.0.0.1:8000/v1/api/consulCluster/summary
+3. 127.0.0.1:8000/v1/api/consulCluster/members
+4. 127.0.0.1:8000/v1/api/consulCluster/systemInfo
