@@ -8,3 +8,5 @@ class Consts:
 class Messages:
     CONSUL_RUNNING = "Consul server is running"
     CONSUL_NOT_RUNNING = "Consul server is not running"
+    NO_LEADER = "No leader"
+    NO_PROTOCOL = "No protocol"

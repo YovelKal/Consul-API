@@ -18,11 +18,10 @@ class MembersModel:
 
 
 class SystemInfo:
-    def __init__(self, vCpus, MemoryGB, disk_usage, network_usage, system_uptime, processes, cpu_temp):
+    def __init__(self, vCpus, MemoryGB, disk_usage, network_usage, system_uptime, processes):
         self.vCpus = vCpus
         self.MemoryGB = MemoryGB
         self.disk_usage = disk_usage
         self.network_usage = network_usage
         self.system_uptime = system_uptime
         self.processes = processes
-        self.cpu_temp = cpu_temp

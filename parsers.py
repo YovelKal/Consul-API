@@ -1,3 +1,4 @@
+import config
 from models import SummaryModel, MembersModel
 
 
@@ -30,13 +31,13 @@ class SummaryParser:
         try:
             return self._leader_res.content
         except:
-            return "No leader"
+            return config.Messages.NO_LEADER
 
     def _protocol(self):
         try:
             return self.protocol_res.json()["Member"]["ProtocolCur"]
         except:
-            return "No protocol"
+            return config.Messages.NO_PROTOCOL
 
 
 class MembersParser:

@@ -42,18 +42,10 @@ class Services:
                         f" Number of GB received: {psutil.net_io_counters()[1] / bytes_to_GB_factor}"
         system_uptime = f"{psutil.boot_time() / 360} Hours"
         processes = len(psutil.pids())
-        #cpu_temp = psutil.sensors_temperatures().get('cpu')
 
         return SystemInfo(vCpus=vCpus,
                           MemoryGB=MemoryGB,
                           disk_usage=disk_usage,
                           network_usage=network_usage,
                           system_uptime=system_uptime,
-                          processes=processes,
-                          cpu_temp=0)
-
-
-
-
-
-
+                          processes=processes)
