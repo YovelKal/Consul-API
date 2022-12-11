@@ -1,17 +1,18 @@
-# Welcome to Core Services exercise repository!
+# Consul-API
 
-If you got here by mistake and you are curious to know if we are hiring - visit the Outbrain careers page!
-https://careers.outbrain.com
+## Getting Started
 
-If you got here after your first interview, then all there is left is to wish you is good luck on your assignment!
-Change to the exersice you were instructed to perform, there you will find all the instructions you need
 
-## Exercises
-#### OutRain API
-An API backend running in docker
+1. Use 'vagrant up' to build the virtual machine and start the Consul agent.
+2. Use 'docker build -t <image_name> .' 
+3. Use 'docker run -it -p 8000:8000 <image_name>'
 
-#### Consul Lab
-A virtual environment that spawns a consul cluster
 
-#### Consul API
-A combined environment of a Consul server used by and API backend that is running in docker
+
+##API EndPoints:
+
+
+127.0.0.1:8000/v1/api/consulCluster/status
+127.0.0.1:8000/v1/api/consulCluster/summary
+127.0.0.1:8000/v1/api/consulCluster/members
+127.0.0.1:8000/v1/api/consulCluster/systemInfo
