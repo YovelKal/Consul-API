@@ -31,10 +31,26 @@ Vagrant.configure("2") do |config|
     mkdir consul-config/server
     echo "$json" > consul-config/server/config.json
 
+    echo "installing docker"
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | \
+    gpg --dearmor | \
+    sudo tee /usr/share/keyrings/docker-ce-archive-keyring.gpg > \
+    /dev/null
+    echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-ce-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker-ce.list > /dev/null
+    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 7EA0A9C3F273FCD8
+    sudo apt-get update
+    sudo apt-get -y install docker-ce=18.06.1~ce~3-0~ubuntu
+    sudo chmod 777 /var/run/docker.sock
+
+    echo "Building the API image..."
+    cd ../../vagrant
+    docker build -t consulapi .
 
     echo "Starting the Consul service..."
-    consul agent -dev -ui -config-dir ~/consul-config/server -bootstrap
-    true -client=0.0.0.0
+    nohup consul agent -dev -ui -config-dir ~/consul-config/server -bootstrap &
+
+    echo "Running the API..."
+    docker run -p 8000:8000 consulapi
 
   SHELL
 end
